@@ -1,28 +1,94 @@
-== README
+# Objetivo da Aplicação
+Buscar usuários do GitHub usando https://developer.github.com/v3/.
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+# Autenticação
+Todas as requets necessitam uma API_KEY, esta chave será disponibilizada pelos administradores da API.
 
-Things you may want to cover:
+# Erros
 
-* Ruby version
+Erros são sinalizados por código de status HTTP e uma resposta JSON explicando a
+causa para o erro em uma mensagem legível.
 
-* System dependencies
+## HTTP Status
 
-* Configuration
+códigos retornados pela API:
 
-* Database creation
+* 200 OK
+* 201 Created: retornado ao criar uma nova entrada
+* 400 Bad Request: retornado quando o request está incorreta ou não tem parametros válidos
+* 401 Unauthorized: retornado quando a request não está autenticada
+* 404 Not Found
+* 500 Internal Server Error
 
-* Database initialization
+## Response
 
-* How to run the test suite
+Todas as mensagens de erro retornam uma resposta JSON com uma mensagem legível. Por exemplo:
 
-* Services (job queues, cache servers, search engines, etc.)
+    { "message": "You is not authorized" }
 
-* Deployment instructions
+# User Git
 
-* ...
+### Campos existentes
+* name (obrigatório)
+
+"login": "raphael27atm",
+    "id": 1651518,
+    "avatar_url": "https://avatars.githubusercontent.com/u/1651518?v=3",
+    "gravatar_id": "",
+    "url": "https://api.github.com/users/raphael27atm",
+    "html_url": "https://github.com/raphael27atm",
+    "followers_url": "https://api.github.com/users/raphael27atm/followers",
+    "following_url": "https://api.github.com/users/raphael27atm/following{/other_user}",
+    "gists_url": "https://api.github.com/users/raphael27atm/gists{/gist_id}",
+    "starred_url": "https://api.github.com/users/raphael27atm/starred{/owner}{/repo}",
+    "subscriptions_url": "https://api.github.com/users/raphael27atm/subscriptions",
+    "organizations_url": "https://api.github.com/users/raphael27atm/orgs",
+    "repos_url": "https://api.github.com/users/raphael27atm/repos",
+    "events_url": "https://api.github.com/users/raphael27atm/events{/privacy}",
+    "received_events_url": "https://api.github.com/users/raphael27atm/received_events",
+    "type": "User",
+    "site_admin": false,
+    "score": 46.37241
+
+## Requests
+
+### GET /users/{name}
+Retorna uma ouvidoria especifíca
+
+#### Exemplo de request
+
+    $ curl https://findusergithub.herokuapp.com/api/v1/users
+        -G
+        -d "api_key=982iiHsdfjjk3II8988" \
+        -d "name=raphael27atm" \
 
 
-Please feel free to use a different markup language if you do not plan to run
-<tt>rake doc:app</tt>.
+#### Exemplo de Resposta
+
+      [
+        {
+          "login": "raphael27atm",
+          "id": 1651518,
+          "avatar_url": "https://avatars.githubusercontent.com/u/1651518?v=3",
+          "gravatar_id": "",
+          "url": "https://api.github.com/users/raphael27atm",
+          "html_url": "https://github.com/raphael27atm",
+          "followers_url": "https://api.github.com/users/raphael27atm/followers",
+          "following_url": "https://api.github.com/users/raphael27atm/following{/other_user}",
+          "gists_url": "https://api.github.com/users/raphael27atm/gists{/gist_id}",
+          "starred_url": "https://api.github.com/users/raphael27atm/starred{/owner}{/repo}",
+          "subscriptions_url": "https://api.github.com/users/raphael27atm/subscriptions",
+          "organizations_url": "https://api.github.com/users/raphael27atm/orgs",
+          "repos_url": "https://api.github.com/users/raphael27atm/repos",
+          "events_url": "https://api.github.com/users/raphael27atm/events{/privacy}",
+          "received_events_url": "https://api.github.com/users/raphael27atm/received_events",
+          "type": "User",
+          "site_admin": false,
+          "score": 46.37241
+        }
+      ]
+
+# Test Rspec
+
+### comando
+* rspec
