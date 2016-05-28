@@ -5,7 +5,7 @@ class User
   attr_accessor :name
 
   def initialize(name)
-    @options = { query: {q: name}}
+    @options = {query: {q: name}}
   end
 
   def search
