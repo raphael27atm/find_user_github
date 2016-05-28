@@ -26,39 +26,20 @@ Todas as mensagens de erro retornam uma resposta JSON com uma mensagem legível.
 
     { "message": "You is not authorized" }
 
-# User Git
+# Users Git
 
 ### Campos existentes
 * name (obrigatório)
 
-"login": "raphael27atm",
-    "id": 1651518,
-    "avatar_url": "https://avatars.githubusercontent.com/u/1651518?v=3",
-    "gravatar_id": "",
-    "url": "https://api.github.com/users/raphael27atm",
-    "html_url": "https://github.com/raphael27atm",
-    "followers_url": "https://api.github.com/users/raphael27atm/followers",
-    "following_url": "https://api.github.com/users/raphael27atm/following{/other_user}",
-    "gists_url": "https://api.github.com/users/raphael27atm/gists{/gist_id}",
-    "starred_url": "https://api.github.com/users/raphael27atm/starred{/owner}{/repo}",
-    "subscriptions_url": "https://api.github.com/users/raphael27atm/subscriptions",
-    "organizations_url": "https://api.github.com/users/raphael27atm/orgs",
-    "repos_url": "https://api.github.com/users/raphael27atm/repos",
-    "events_url": "https://api.github.com/users/raphael27atm/events{/privacy}",
-    "received_events_url": "https://api.github.com/users/raphael27atm/received_events",
-    "type": "User",
-    "site_admin": false,
-    "score": 46.37241
-
 ## Requests
 
-### GET /users/{name}
-Retorna uma ouvidoria especifíca
+### GET /users/
+Retorna usuários de acordo com o parametro
 
 #### Exemplo de request
 
     $ curl https://findusergithub.herokuapp.com/api/v1/users
-        -G
+        --get
         -d "api_key=982iiHsdfjjk3II8988" \
         -d "name=raphael27atm" \
 
@@ -86,6 +67,51 @@ Retorna uma ouvidoria especifíca
           "site_admin": false,
           "score": 46.37241
         }
+      ]
+
+# User Git Repositórios
+
+### Campos existentes
+* name (obrigatório)
+
+## Requests
+
+### GET /users/{name}
+Retorna o usuário
+
+#### Exemplo de request
+
+    $ curl https://findusergithub.herokuapp.com/api/v1/users/raphael27atm
+        --get
+        -d "api_key=982iiHsdfjjk3II8988" \
+
+
+#### Exemplo de Resposta
+
+      [
+        {
+          "id": 50132089,
+          "name": "agenda-contatos",
+          "full_name": "raphael27atm/agenda-contatos",
+          "owner": {
+          "login": "raphael27atm",
+          "id": 1651518,
+          "avatar_url": "https://avatars.githubusercontent.com/u/1651518?v=3",
+          "gravatar_id": "",
+          "url": "https://api.github.com/users/raphael27atm",
+          "html_url": "https://github.com/raphael27atm",
+          "followers_url": "https://api.github.com/users/raphael27atm/followers",
+          "following_url": "https://api.github.com/users/raphael27atm/following{/other_user}",
+          "gists_url": "https://api.github.com/users/raphael27atm/gists{/gist_id}",
+          "starred_url": "https://api.github.com/users/raphael27atm/starred{/owner}{/repo}",
+          "subscriptions_url": "https://api.github.com/users/raphael27atm/subscriptions",
+          "organizations_url": "https://api.github.com/users/raphael27atm/orgs",
+          "repos_url": "https://api.github.com/users/raphael27atm/repos",
+          "events_url": "https://api.github.com/users/raphael27atm/events{/privacy}",
+          "received_events_url": "https://api.github.com/users/raphael27atm/received_events",
+          "type": "User",
+          "site_admin": false
+        },...
       ]
 
 # Test Rspec
