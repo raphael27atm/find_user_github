@@ -1,0 +1,5 @@
+.form-inline
+  = form_tag({:controller => 'users', action: "index"},{:method => :get})  do
+    .form-group
+      = text_field_tag :name, "", class: "form-control", :placeholder => "Ex: raphael27atm"
+    = submit_tag "Buscar", class: "btn btn-primary"

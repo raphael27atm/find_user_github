@@ -1,0 +1,8 @@
+h3 Listagem de projetos
+ul.list-group
+  - @user.each do |user|
+    li.list-group-item
+      = user['full_name']
+      a href="#{user['html_url']}" class="btn btn-primary btn-xs pull-right" target="_blank" Ver Projeto
+= link_to "Voltar", :back, class: "btn btn-default"
+hr

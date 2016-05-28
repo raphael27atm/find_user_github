@@ -1,0 +1,22 @@
+h2 Faça sua pesquisa aqui
+= render 'form'
+hr
+- unless @users.empty?
+  table.table
+    thead
+      tr
+        th Avatar
+        th Usuário
+        th Repositório
+        th Ver
+    tbody
+      - @users.map do |user|
+        tr
+          td= image_tag "#{user['avatar_url']}", class: "img-responsive img-thumbnail"
+          td= user['login']
+          td
+            a href="#{user['html_url']}" target="_blank" Repositório
+          td= link_to "Ver", user_path(user['login']), :class => "btn btn-success"
+- else
+  .text-center
+    h2 Nenhum usuário Encontrado

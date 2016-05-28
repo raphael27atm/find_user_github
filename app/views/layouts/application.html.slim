@@ -1,0 +1,11 @@
+doctype html
+html
+  head
+    meta name="viewport" content="width=device-width, initial-scale=1.0"
+    title GitHub Find Users
+    = stylesheet_link_tag "application", media: "all", "data-turbolinks-track" => true
+    = csrf_meta_tags
+  body
+    .container
+      .col-md-12
+        = yield
