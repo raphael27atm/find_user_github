@@ -1,15 +1,15 @@
-# Objetivo da Aplicação
+### Objetivo da Aplicação
 Buscar usuários do GitHub usando https://developer.github.com/v3/.
 
-# Autenticação
+### Autenticação
 Todas as requets necessitam uma API_KEY, esta chave será disponibilizada pelos administradores da API.
 
-# Erros
+### Erros
 
 Erros são sinalizados por código de status HTTP e uma resposta JSON explicando a
 causa para o erro em uma mensagem legível.
 
-## HTTP Status
+### HTTP Status
 
 códigos retornados pela API:
 
@@ -20,23 +20,23 @@ códigos retornados pela API:
 * 404 Not Found
 * 500 Internal Server Error
 
-## Response
+### Response
 
 Todas as mensagens de erro retornam uma resposta JSON com uma mensagem legível. Por exemplo:
 
     { "message": "You is not authorized" }
 
-# Users Git
+### Usuários Git
 
-### Campos existentes
+##### Campos existentes
 * name (obrigatório)
 
-## Requests
+##### Requests
 
-### GET /users/
+##### GET /users/
 Retorna usuários de acordo com o parametro
 
-#### Exemplo de request
+##### Exemplo de request
 
     $ curl https://findusergithub.herokuapp.com/api/v1/users
         --get
@@ -44,7 +44,7 @@ Retorna usuários de acordo com o parametro
         -d "name=raphael27atm" \
 
 
-#### Exemplo de Resposta
+##### Exemplo de Resposta
 
       [
         {
@@ -69,24 +69,24 @@ Retorna usuários de acordo com o parametro
         }
       ]
 
-# User Git Repositórios
+### User Git Repositórios
 
-### Campos existentes
+##### Campos existentes
 * name (obrigatório)
 
-## Requests
+##### Requests
 
-### GET /users/{name}
+##### GET /users/{name}
 Retorna o usuário
 
-#### Exemplo de request
+##### Exemplo de request
 
     $ curl https://findusergithub.herokuapp.com/api/v1/users/raphael27atm
         --get
         -d "api_key=982iiHsdfjjk3II8988" \
 
 
-#### Exemplo de Resposta
+##### Exemplo de Resposta
 
       [
         {
@@ -114,7 +114,7 @@ Retorna o usuário
         },...
       ]
 
-# Test Rspec
+### Test Rspec
 
-### comando
+##### comando
 * rspec
