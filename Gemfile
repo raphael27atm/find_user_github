@@ -10,13 +10,12 @@ gem 'turbolinks'
 gem 'jbuilder', '~> 2.0'
 gem 'slim-rails'
 gem 'sdoc', '~> 0.4.0', group: :doc
-gem 'active_model_serializers'
 gem 'httparty'
+gem 'active_model_serializers'
 gem 'responders', '~> 2.0'
+
 group :development, :test do
   gem 'rspec-rails', '~> 3.2.3'
-  gem "factory_girl_rails"
-  gem 'guard-rspec', require: false
   gem 'spring-commands-rspec'
   gem 'pry'
 end
