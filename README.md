@@ -4,6 +4,18 @@
 ### Objetivo da Aplicação
 Buscar usuários do GitHub usando https://developer.github.com/v3/.
 
+### Instalação
+Baixe o projeto ou faça a clonagem e siga os comandos
+```
+cd <path>
+bundle install
+rails s
+```
+### Test Rspec
+comando
+```
+rspec
+```
 ### Autenticação
 Todas as requets necessitam uma API_KEY, esta chave será disponibilizada pelos administradores da API.
 
@@ -117,7 +129,3 @@ Retorna o usuário
         },...
       ]
 
-### Test Rspec
-
-##### comando
-* rspec
