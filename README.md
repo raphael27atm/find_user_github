@@ -1,6 +1,3 @@
-### App Busca Usuários no Github
-[![Code Climate](https://codeclimate.com/github/raphael27atm/find_user_github/badges/gpa.svg)](https://codeclimate.com/github/raphael27atm/find_user_github)
-
 ### Objetivo da Aplicação
 Buscar usuários do GitHub usando https://developer.github.com/v3/.
 
